@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitorowania Warunków Środowiskowych</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>System Monitorowania Warunków Środowiskowych</h1>
+            <p>Monitoring jakości powietrza i komfortu w czasie rzeczywistym</p>
+        </div>
+
+        <div class="main-content">
+            <div class="room-selector">
+                <label for="roomSelect">Wybierz pomieszczenie:</label>
+                <select id="roomSelect">
+                    <option value="sala-101">Sala 101</option>
+                    <option value="sala-102">Sala 102</option>
+                    <option value="sala-103">Sala 103</option>
+                </select>
+            </div>
+
+            <div class="room-info" id="roomInfo">
+                <h3>Czujniki w pomieszczeniu</h3>
+                <div class="sensors-list" id="sensorsList"></div>
+            </div>
+
+            <div class="refresh-section">
+                <button class="refresh-button" onclick="manualRefresh()">Aktualizuj dane</button>
+                <p class="last-update">Ostatnia aktualizacja: <span id="lastUpdate">-</span></p>
+            </div>
+
+            <h2 class="section-title">Aktualne dane pomiarowe</h2>
+            
+            <div class="metrics-grid" id="metricsGrid"></div>
+
+            <div class="alerts-section">
+                <h2>Ostrzeżenia i alerty</h2>
+                <div id="alertsList"></div>
+            </div>
+
+            <div class="settings-section">
+                <button class="settings-toggle" onclick="toggleSettings()">Ustawienia progów</button>
+                <div id="settingsPanel" style="display: none;">
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label>Temp. min (°C)</label>
+                            <input type="number" id="tempMin" value="20" step="0.5">
+                        </div>
+                        <div class="setting-item">
+                            <label>Temp. max (°C)</label>
+                            <input type="number" id="tempMax" value="24" step="0.5">
+                        </div>
+                        <div class="setting-item">
+                            <label>Wilgotność min (%)</label>
+                            <input type="number" id="humidityMin" value="40">
+                        </div>
+                        <div class="setting-item">
+                            <label>Wilgotność max (%)</label>
+                            <input type="number" id="humidityMax" value="60">
+                        </div>
+                        <div class="setting-item">
+                            <label>CO₂ max (ppm)</label>
+                            <input type="number" id="co2Max" value="1000" step="50">
+                        </div>
+                        <div class="setting-item">
+                            <label>VOC max (ppb)</label>
+                            <input type="number" id="vocMax" value="500" step="50">
+                        </div>
+                        <div class="setting-item">
+                            <label>Światło min (lx)</label>
+                            <input type="number" id="luxMin" value="300" step="50">
+                        </div>
+                    </div>
+                    <button class="save-settings-button" onclick="saveSettings()">Zapisz ustawienia</button>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <h2 class="section-title">Historia pomiarów (ostatnie 7 dni)</h2>
+                
+                <div class="chart-container">
+                    <div class="chart-title">Temperatura</div>
+                    <div class="chart-wrapper">
+                        <canvas id="tempChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Wilgotność</div>
+                    <div class="chart-wrapper">
+                        <canvas id="humidityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">CO₂</div>
+                    <div class="chart-wrapper">
+                        <canvas id="co2Chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">VOC</div>
+                    <div class="chart-wrapper">
+                        <canvas id="vocChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Natężenie oświetlenia</div>
+                    <div class="chart-wrapper">
+                        <canvas id="luxChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<div class="podpis">
+    <p>Created by Damian Szczegura</p>
+</div>
+</html>
