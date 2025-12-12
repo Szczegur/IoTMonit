@@ -7,12 +7,12 @@ This repository contains a website created as part of a room monitoring system f
 
 
 Features
-Basic web interface for room monitoring
-Clean structure using HTML, CSS, and JavaScript
+Basic web interface for room monitoring,
+Clean structure using HTML, CSS, and JavaScript,
 Lightweight and easy to integrate with backend or sensor systems
 
 
 Technologies Used
-HTML
-CSS
+HTML,
+CSS,
 JavaScript
