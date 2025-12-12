@@ -6,13 +6,13 @@ Room Monitoring System – Web Interface
 This repository contains a website created as part of a room monitoring system for an office building. The web interface is designed to present information related to monitored office spaces and serves as the front-end layer of the system.
 
 
-Features
+Features: 
 Basic web interface for room monitoring,
 Clean structure using HTML, CSS, and JavaScript,
 Lightweight and easy to integrate with backend or sensor systems
 
 
-Technologies Used
+Technologies Used: 
 HTML,
 CSS,
 JavaScript
